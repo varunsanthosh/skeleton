@@ -1,0 +1,5 @@
+{
+  "linters": {
+    "*.{ts,tsx}": ["prettier --write", "npm run lint:base --fix", "git add"]
+  }
+}
