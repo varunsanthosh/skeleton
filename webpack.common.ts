@@ -20,8 +20,8 @@ export const common = () => ({
     path: path.resolve(__dirname, ".build"),
     publicPath: "/",
     crossOriginLoading: "anonymous",
-    filename: "[name]-[hash].js",
-    chunkFilename: "[name]-[hash].js"
+    filename: "[name]-[contenthash].js",
+    chunkFilename: "[name]-[contenthash].js"
   },
   resolve: {
     modules: [
@@ -82,7 +82,16 @@ export const common = () => ({
     ),
 
     new HtmlWebpackPlugin({
-      template: "ejs-compiled-loader!./src/index.ejs",
+      test: /\.ejs$/,
+      use: {
+        loader: 'ejs-compiled-loader',
+        options: {
+          htmlmin: true,
+          htmlminOptions: {
+            removeComments: true
+          }
+        }
+      },
       inject: true,
       production: IN_PRODUCTION,
       hooks: [

@@ -6,5 +6,5 @@ This is a boiler plate which includes
 - Jest
 
 ## Requirements
-- Node `v10.13.0`
-- NPM `v6.4.1`
+- Node `v14.16.1`
+- NPM `v6.14.12`
