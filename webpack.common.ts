@@ -20,8 +20,8 @@ export const common = () => ({
     path: path.resolve(__dirname, ".build"),
     publicPath: "/",
     crossOriginLoading: "anonymous",
-    filename: "[name]-[hash].js",
-    chunkFilename: "[name]-[hash].js"
+    filename: "[name]-[contenthash].js",
+    chunkFilename: "[name]-[contenthash].js"
   },
   resolve: {
     modules: [

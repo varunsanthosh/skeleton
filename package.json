@@ -10,7 +10,7 @@
   "license": "ISC",
   "author": "Varun",
   "scripts": {
-    "build": "webpack-cli --config webpack.production.ts",
+    "build": "webpack --config webpack.production.ts",
     "build:all": "npm run build",
     "lint": "npm run lint:base",
     "lint:base": "eslint \"src/**/*.{js,ts}{,?}\"",
@@ -47,7 +47,6 @@
     "redux-saga": "^1.1.3",
     "regenerator-runtime": "~0.13.7",
     "reselect": "^4.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-polyfill": "^1.1.12",
     "webpack": "^5.31.2",
     "webpack-cli": "^4.6.0",
@@ -114,6 +113,7 @@
     "ts-jest": "^26.5.4",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
+    "webpack-dev-server": "^3.11.2",
     "write-json-file": "^4.3.0"
   }
 }

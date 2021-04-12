@@ -1,19 +1,14 @@
 import merge from "webpack-merge";
-import webpack from "webpack";
-import UglifyJSPlugin from "uglifyjs-webpack-plugin";
 import { common } from "./webpack.common";
+
+const TerserPlugin = require('terser-webpack-plugin');
+
 
 export default merge(common(), {
   mode: "production",
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
-        uglifyOptions: {
-          warnings: false,
-          mangle: true,
-          ie8: false
-        }
-      })
+      new TerserPlugin({parallel: true})
     ]
   }
 } as Object);
