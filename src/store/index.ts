@@ -8,7 +8,6 @@ import {
 } from "redux";
 import createSagaMiddleware from "redux-saga";
 import rootReducer from "modules";
-import rootSaga from "saga";
 import {
   ActionWithPayload,
   ActionWithoutPayload,
@@ -42,18 +41,13 @@ if (IN_PRODUCTION) {
 }
 
 const store: StoreType = createStore(reducer, preloadState);
-const sagaTask = sagaMiddleware.run(rootSaga);
-
-sagaTask.done.catch((e: Error) => {
-  throw e;
-});
 
 export default store;
 store.asyncReducers = {};
 
 function replaceReducers() {
   const merged = Object.assign({}, rootReducer, store.asyncReducers);
-  const combined: Reducer<{}> = combineReducers(merged);
+  const combined: Reducer = combineReducers(merged);
   store.replaceReducer(combined);
 }
 
@@ -68,6 +62,6 @@ export function injectAsyncReducers(asyncReducers: any) {
   if (Object.keys(asyncReducers).length === 0) {
     return;
   }
-  Object.assign(store.asyncReducers, injectReducers);
+  store.asyncReducers = { ...store.asyncReducers, injectReducers };
   replaceReducers();
 }

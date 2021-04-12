@@ -82,7 +82,16 @@ export const common = () => ({
     ),
 
     new HtmlWebpackPlugin({
-      template: "ejs-compiled-loader!./src/index.ejs",
+      test: /\.ejs$/,
+      use: {
+        loader: 'ejs-compiled-loader',
+        options: {
+          htmlmin: true,
+          htmlminOptions: {
+            removeComments: true
+          }
+        }
+      },
       inject: true,
       production: IN_PRODUCTION,
       hooks: [

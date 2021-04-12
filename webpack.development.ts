@@ -1,6 +1,5 @@
 import path from "path";
 import merge from "webpack-merge";
-import webpack from "webpack";
 import { common } from "./webpack.common";
 
 module.exports = merge(common(), {
@@ -17,4 +16,4 @@ module.exports = merge(common(), {
     hot: true,
     compress: false
   }
-} as webpack.Configuration);
+} as Object);

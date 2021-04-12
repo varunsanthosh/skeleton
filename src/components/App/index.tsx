@@ -21,7 +21,7 @@ export const App = (routes: RouteProps[]) => (
             key={path.toString()}
             path={path}
             exact={r.exact}
-            render={p => <r.component {...p} />}
+            render={(p) => <r.component {...p} />}
           />
         );
       })}

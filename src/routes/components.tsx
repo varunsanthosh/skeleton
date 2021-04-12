@@ -10,9 +10,9 @@ function asyncComponent(getComponent: () => Promise<any>) {
     static Component = null;
     state = { Component: AsyncComponent.Component };
 
-    componentWillMount() {
+    componentDidMount() {
       if (!this.state.Component) {
-        getComponent().then(Component => {
+        getComponent().then((Component) => {
           AsyncComponent.Component = Component;
           this.setState({ Component });
         });
@@ -31,7 +31,7 @@ function asyncComponent(getComponent: () => Promise<any>) {
 const IntialPage = asyncComponent(
   (): Promise<any> =>
     import("pages" /* webpackChunkName: "initial" */).then(
-      module => module.default
+      (module) => module.default
     )
 );
 

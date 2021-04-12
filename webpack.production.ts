@@ -16,4 +16,4 @@ export default merge(common(), {
       })
     ]
   }
-} as webpack.Configuration);
+} as Object);

@@ -9,6 +9,7 @@
       "es2017",
       "dom"
     ],
+    "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "resolveJsonModule": true,
